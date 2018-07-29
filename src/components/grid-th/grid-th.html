@@ -1,0 +1,7 @@
+<th (click)="onClick($event)">
+  <svg [attr.class]="'icon-' + icon"><use [attr.xlink:href]="'#icon-' + icon"></use></svg>
+  <span><ng-content></ng-content></span>
+  <span *ngIf="!disabledSort" [class.icon-carret_down]="sort === order.ASC" [class.icon-carret_up]="sort === order.DESC">
+    <span [attr.xlink:href.#icon-carret_down]="sort === order.ASC" [attr.xlink:href.#icon-carret_up]="sort === order.DESC">{{sort === order.DESC ? ' V' : ' A'}}</span>
+  </span>
+</th>
