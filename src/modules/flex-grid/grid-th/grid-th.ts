@@ -1,5 +1,5 @@
 import {Component, Input} from '@angular/core';
-import {GridOrder} from '../../app/app.component';
+import {GridOrder} from '../helper';
 
 @Component({
   selector: 'grid-th',
@@ -19,14 +19,14 @@ export class GridThComponent {
   clickHandler(e): void {
   }
 
+  invertOrder(order: GridOrder) {
+    return order === GridOrder.ASC ? GridOrder.DESC : GridOrder.ASC;
+  }
+
   private onClick(e): void {
     if (!this.disabledSort) {
       this.sort = this.invertOrder(this.sort);
+      this.clickHandler(e);
     }
-    this.clickHandler(e);
-  }
-
-  invertOrder(order: GridOrder) {
-    return order === GridOrder.ASC ? GridOrder.DESC : GridOrder.ASC;
   }
 }

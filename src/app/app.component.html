@@ -1,14 +1,14 @@
 <grid-component (sortHandler)="sortMe($event)" (selectHandler)="selectMe($event)" (scrollHandler)="scrollMe($event)">
-  <grid-header>
-    <grid-row>
-      <grid-th [icon]="'abcd'" [name]="'name'">Player name</grid-th>
-      <grid-th [icon]="'abcd'" [name]="'score'" [sort]="order.DESC">Score</grid-th>
-    </grid-row>
-  </grid-header>
-  <grid-body>
-    <grid-row *ngFor="let row of data">
-      <grid-td>{{row.name}}</grid-td>
-      <grid-td>{{row.score}}</grid-td>
-    </grid-row>
-  </grid-body>
+    <grid-header>
+        <grid-row>
+            <grid-th [icon]="'abcd'" [name]="'name'">Player name</grid-th>
+            <grid-th [icon]="'abcd'" [name]="'score'" [sort]="order.DESC">Score</grid-th>
+        </grid-row>
+    </grid-header>
+    <grid-body>
+        <grid-row *ngFor="let row of data">
+            <grid-td>{{row.name}}</grid-td>
+            <grid-td>{{row.score}}</grid-td>
+        </grid-row>
+    </grid-body>
 </grid-component>

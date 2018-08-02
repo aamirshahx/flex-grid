@@ -9,5 +9,15 @@ import {GridRowComponent} from '../grid-row/grid-row';
 
 export class GridBodyComponent {
   title = 'grid-body';
+  disableScroll = true;
   @ContentChildren(GridRowComponent) row: QueryList<GridRowComponent>;
+
+  scrollHandler(e): void {
+  }
+
+  onScroll(e): void {
+    if (!this.disableScroll) {
+      this.scrollHandler(e);
+    }
+  }
 }

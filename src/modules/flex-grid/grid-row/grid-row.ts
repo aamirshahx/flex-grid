@@ -13,19 +13,20 @@ export class GridRowComponent {
   active = false;
 
   @ContentChildren(GridThComponent) th: QueryList<GridThComponent>;
+
   // @ContentChildren(GridTdComponent) td: QueryList<GridTdComponent>;
 
   deactive(): void {
     this.active = false;
   }
 
+  clickHandler(e): void {
+  }
+
   private onClick(e): void {
     if (!this.disableSelect) {
       this.active = true;
+      this.clickHandler(e);
     }
-    this.clickHandler(e);
-  }
-
-  clickHandler(e): void {
   }
 }

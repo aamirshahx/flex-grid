@@ -1,16 +1,15 @@
 import {AfterContentInit, Component, ContentChild, EventEmitter, Input, OnInit, Output} from '@angular/core';
 import {GridHeaderComponent} from '../grid-header/grid-header';
 import {GridThComponent} from '../grid-th/grid-th';
-import {GridOrder} from '../../app/app.component';
 import {GridBodyComponent} from '../grid- body/grid-body';
 import {GridRowComponent} from '../grid-row/grid-row';
+import {GridOrder} from '../helper';
 
 @Component({
   selector: 'grid-component',
   templateUrl: './grid.html',
   styleUrls: ['./grid.css'],
 })
-
 export class GridComponent implements OnInit, AfterContentInit {
   title = 'grid';
 
@@ -50,6 +49,11 @@ export class GridComponent implements OnInit, AfterContentInit {
           this.onSelect.call(this, trow, 'tr', e);
         };
       });
+    }
+
+    if (this.scrollable) {
+      this.body.disableScroll = false;
+      this.body.scrollHandler = this.onScroll.bind(this);
     }
   }
 
